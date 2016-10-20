@@ -1,0 +1,93 @@
+/* Gutter Cleanout style sheet */
+#header, header	{
+	position: absolute;
+	top: 0;
+	width: 90%;
+    
+    background-image: -ms-linear-gradient(top, #1EC3F3 0%, #C6E3F1 100%);  /* IE10+ */
+    background : -webkit-gradient(linear, left top, left bottom, from(#1EC3F3), to(#C6E3F1));
+    background : -moz-linear-gradient(top, #1EC3F3, #C6E3F1); 
+	}
+#inner_header {
+	float: :right;
+}
+#footer, footer {
+	position:absolute;
+	bottom: 11px;
+	text-align: center;
+	width:600px;
+	font-variant: small-caps;
+	}	
+#menu	{
+	position: relative;
+	left: 10px;
+/*	top:85px;
+*/	width: 610px;
+	border:black dotted 1px;
+	color:blue;
+	}
+#main	{
+	position:absolute;
+/*	left: 10px;
+*/	top: 100px;
+	width: 880px;
+	max-height: 430px;
+	/*border:thin solid lightsteelblue;*/
+	padding: 3px;
+	background-image:url('./images/leaves.png');
+	background-repeat:no-repeat;
+	background-position:right bottom;
+	}
+#pagewrap	{
+	width:1024px;
+	height: 600px;
+	border:thin solid black;
+	}
+th	{
+	font-variant: small-caps;
+	color: green;
+	border-bottom: thin dashed;
+	}
+h3	{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	}
+
+#note	{
+	position:relative;
+	top:9px;
+}
+#del	{
+	background-color: red;
+	color: white;
+	}
+.errormess {}
+.bold{}
+input[type="text"]	{
+	background-color: #a9f3a7;
+	text-align: right;
+}
+table.data	{
+	font-size:small;
+	color:black;
+	border:thin solid blue;
+	}
+td.display	{
+	border-bottom: thin solid black;
+	padding-bottom: 6px;
+	padding-right:  6px;
+	}
+
+.deco	{
+	font-variant: small-caps;
+	font-size:smaller;
+	text-decoration: underline;
+}
+.sm_disp	{
+	font-size: smaller;
+	padding-left: 4px;
+}
+.imfl {
+	float: left;
+	padding-right:10px;
+	}

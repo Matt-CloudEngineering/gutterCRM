@@ -1,0 +1,18 @@
+fieldset {
+  padding: 1em;
+  font:80%/1 sans-serif;
+  }
+label {
+  float:left;
+  margin-right:0.5em;
+  padding-top:0.2em;
+  text-align:right;
+  font-weight:bold;
+  }
+  .form-group {
+    padding-left: 5px;
+  }
+
+.shade {
+     box-shadow: 2px 2px 2px green;
+  }

@@ -1,0 +1,25 @@
+/*Gutter Cleanouts 2 style sheet*/
+#main	{
+	position:absolute;
+/*	left: 10px;
+*/	top: 100px;
+	width: 880px;
+	max-height: 430px;
+	/*border:thin solid lightsteelblue;*/
+	padding: 3px;
+	background-image:url('./images/leaves.png');
+	background-repeat:no-repeat;
+	background-position:right bottom;
+	}
+
+#header, header	{
+	position: absolute;
+	top: 0;
+	width: 90%;
+    
+    background-image: -ms-linear-gradient(top, #1EC3F3 0%, #C6E3F1 100%);  /* IE10+ */
+    background : -webkit-gradient(linear, left top, left bottom, from(#1EC3F3), to(#C6E3F1));
+    background : -moz-linear-gradient(top, #1EC3F3, #C6E3F1); 
+	}
+#inner_header {
+	
