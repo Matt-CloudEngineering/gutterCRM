@@ -1,7 +1,7 @@
 
 <div class='container'>
 	<div class="row">
-	    <div class="col-lg-9">
+	    <div class="col-lg-9 hidden-sm">
 
 	    	<?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
 
@@ -54,11 +54,6 @@
 					<?php endforeach; ?>
 				</table>
 			</div>
-		</div>
-		<div class="col-lg-3">
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
 		</div>
 	</div>
 </div>

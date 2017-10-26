@@ -2,7 +2,7 @@
 
 <div class='container'>
 	<div class="row">
-	    <div class="col-lg-9">
+	    <div class="col-lg-12">
 	    	<div class="table-responsive">
 	    	  	<table class="table">
 					<tr>
@@ -14,7 +14,7 @@
 						<th>date_ent</th>
 						<th>Total</th>
 						<th>status</th>
-						<th>notes</th>
+						<th style="width:150px">notes</th>
 					</tr>
 					<!--Load each record and create row in table with data -->	
 					<?php foreach ($job as $job_item): ?>
@@ -40,9 +40,29 @@
 			</div>
 		</div>
 		<div class="col-lg-3">
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
+	       <?php
+
+	            $address = $custies_item['street'].",".$custies_item['townzip'];
+
+	            //echo $address."<br/>";
+
+	            $peices= explode(" ",$address);
+
+	            $faddie="";
+	            foreach ($peices as $pie) {
+	            	$faddie.=$pie."+"; 
+	            }
+
+	            //echo $faddie;
+            ?>
+        
+           <iframe
+             width="400"
+             height="300"
+             frameborder="0" style="border:0"
+             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBxgy7B7Bqzy6rSaTZaXe7hOD67-UZ1Jm4
+               &q=<?php echo $faddie; ?>&zoom=13" allowfullscreen>
+           </iframe>  
 		</div>
 	</div>
 </div>

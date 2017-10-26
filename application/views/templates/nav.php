@@ -1,4 +1,13 @@
-
+<!-- Simple login logic for menu items -->
+    <?php
+        if(!logged_in()){
+            $log_meth ='auth/login';
+            $login ='Login';
+        } else {
+            $log_meth ='auth/logout';
+            $login ='Logout';
+        }
+    ?>
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -25,17 +34,14 @@
                     </li>
                     <li>
                         <a href="<?php echo site_url('custies'); ?>">Customers</a>
-<!--                         <ul class="menuii">
- -->
                     </li>
 
                     <li>
                         <a href="<?php echo site_url('custies/newq'); ?>" title="New Customer">New</a>
                     </li>
                     <li>
-                         <a href="<?php echo site_url('/auth'); ?>" title="Login to CRM">Login</a>
+                        <a href="<?php echo site_url($log_meth); ?>" title="Login to CRM"><?php echo $login ?></a>
                    </li>
- <!--                        </ul> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -8,6 +8,7 @@ class Pages extends CI_Controller {
                 $this->load->model('Custies_model');
                 $this->load->helper('url_helper');
                 $this->load->helper('html');
+                $this->load->helper('Authit');
 
         }
 
@@ -20,6 +21,8 @@ class Pages extends CI_Controller {
         }
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
+        $data['log_meth']='auth/login';
+        $data['login']='Login';
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/nav', $data);

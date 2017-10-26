@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4">
                 <p><a href="<?php echo site_url('auth/login'); ?>">Login</a></p>
-                <div class="form-control">
+                <div class="form-group">
                     <?php 
                        if($error) echo '<p class="error">'. $error .'</p>';
                        echo form_open(); 

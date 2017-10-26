@@ -16,6 +16,7 @@ class Auth extends CI_Controller {
 		
 		$this->load->library('authit');
 		$this->load->helper('authit');
+		$this->load->helper('form');
 		$this->config->load('authit');
 		
 		$this->load->helper('url');
@@ -26,7 +27,7 @@ class Auth extends CI_Controller {
 		if(!logged_in()) redirect('auth/login');
 		 
 		// Redirect to your logged in landing page here
-		redirect('auth/dash');
+		redirect('custies');
 	}
 	
 	/**
@@ -34,8 +35,8 @@ class Auth extends CI_Controller {
 	 */
 	public function login()
 	{
-		if(logged_in()) redirect('auth/dash');
-		 
+		if(logged_in()) redirect('custies');
+		 	 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 		$data['error'] = false;
@@ -65,8 +66,11 @@ class Auth extends CI_Controller {
 	 */
 	public function signup()
 	{
+
+		redirect('auth/nonew');
+
 		// Redirect to your logged in landing page here
-		if(logged_in()) redirect('auth/dash');
+		if(logged_in()) redirect('custies');
 		 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
@@ -100,15 +104,29 @@ class Auth extends CI_Controller {
 		//$this->load->view('auth/signup', $data);
 	}
 	
+	public function nonew()
+	{
+		$data['title']="Login";
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/nav', $data);
+		$this->load->view('auth/nonew', $data);
+		$this->load->view('templates/footer');	
+	}
+
+
+
 	/**
 	 * Logout page
 	 */
 	public function logout()
 	{
+		$this->authit->logout('/');
+
 		if(!logged_in()) redirect('auth/login');
 
 		// Redirect to your logged out landing page here
-		$this->authit->logout('/');
+		
 	}
 	
 	/**
@@ -118,8 +136,9 @@ class Auth extends CI_Controller {
 	{
 		if(!logged_in()) redirect('auth/login');
 		
-		echo 'Hi, '. user('email') .'. You have successfully  logged in. <a href="'. site_url('auth/logout') .'">Logout</a>';
-	}
+		redirect('custies');
+		//echo 'Hi, '. user('email') .'. You have successfully  logged in. <a href="'. site_url('auth/logout') .'">Logout</a>';
+	} 
 	
 	/**
 	 * Forgot password page
@@ -169,7 +188,13 @@ Note: This reset code will expire after '. date('j M Y') .'.';
 			$data['success'] = true;
 		}
 		
+		$data['title']="Login";
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/nav', $data);
 		$this->load->view('auth/forgot_password', $data);
+		$this->load->view('templates/footer');
+
 	}
 
     public function savemails($origin,$protocol,$mailtype,$from,$email,$subject,$message)

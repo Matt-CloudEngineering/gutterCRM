@@ -17,36 +17,39 @@ $('.datepicker').datepicker();
 <!-- Jobs Index -->
 <div class='container'>
 	<div class="row">
-	    <div class="col-lg-9">
-	    	<div class="table-responsive">
+	    <div class="col-md-10">
+	    	<div class="form-group">
 
 	    		<?php echo form_open('', 'name="myform"','id="jobs"'); ?>
 <!-- 	    			<div id="sandbox"><input id="fdate" name="fdate" id="fdate" onchange='SetFromDate()'></div> -->
 	    			<input type="text" value="" class="datepicker" data-provider="datepicker">
-		    		<select name="status" id="name" onchange='Running()'>
-		    			<?php if($status = 'todo')
-		    			{
-		    				echo "<option value='todo' selected>Todo</option>";
-		    				echo "<option value='done-owes'>Done-Owes</option>";
-		    				echo "<option value='done-paid'>Done-Paid</option>";
-		    			} else if ($status = 'done-owes') {
-		    				echo "<option value='todo'>todo</option>";
-		    				echo "<option value='done-owes' selected>done-owes</option>";
-		    				echo "<option value='done-paid'>done-paid</option>";
-		    			} else {
-		    				echo "<option value='todo'>todo</option>";
-							echo "<option value='done-owes'>done-owes</option>";
-							echo "<option value='done-paid' selected>done-paid</option>";
-		    			} 			
-		    			?>
-		    			
+	    			<?php 
+		    			$options = array(
+		    				'todo' => 'todo',
+		    				'done-owes' => 'done-owes',
+		    				'done-paid' => 'done-paid'
+		    				);
 
-		    		</select>
-		    		&nbsp;Jobs found:<?php echo (count($job)); ?>
-	    		</form>
-	    		<div>
-	    			
-	    		</div>
+
+		    			if($this->input->post('status') == 'todo')
+		    			{
+		    				echo form_dropdown('status', $options, 'todo');
+		    			} else if ($this->input->post('status') == 'done-owes')
+		    			{
+		    				echo form_dropdown('status', $options, 'done-owes');
+		    			} else  if ($this->input->post('status') == 'done-paid')
+		    			{
+		    				echo form_dropdown('status', $options, 'done-paid');
+		    			} else {
+		    				echo form_dropdown('status', $options, 'todo');
+		    			}			    				    			
+		    			echo "&nbsp;Jobs found:".(count($job));
+		    			$total=0;
+		    		?>
+		    		</form>
+
+    		<div>
+	    	<div class='table-responsive'>		
 	    	  	<table class="table">
 					<tr>
 						<th>Job Id</th>
@@ -57,7 +60,7 @@ $('.datepicker').datepicker();
 						<th>Total</th>
 						<th style="width:105px">status</th>
 						<th style="width:155px">Name</th>
-						<th>notes</th>
+						<th style="width:255px">notes</th>
 					</tr>
 					<!--Load each record and create row in table with data -->	
 					<?php foreach ($job as $job_item): ?>
@@ -68,22 +71,18 @@ $('.datepicker').datepicker();
 					    	<td><?php echo $job_item['date_sched']; ?></td>
 					        <td><?php echo $job_item['date_comp'] ?></td>
 <!-- 					        <td><?php echo $job_item['date_ent']; ?></td> -->
-					        <td><?php echo ($job_item['price'] + $job_item['bagging']); ?></td>
+					        <td><?php
+					        	echo ($job_item['price'] + $job_item['bagging'] + $job_item['sweeping']);
+					        	$total.=$job_item['price'] + $job_item['bagging'] + $job_item['sweeping']; ?></td>
 					        <td><?php echo $job_item['status'] ?></td>
 					        <td><a href="<?php echo site_url('custies/view/'.$job_item['cust_id']); ?>"><?php echo $job_item['name']; ?></td>
 					        <td><?php echo $job_item['notes']; ?></td>
-
 					    </tr>
 					       
 					<?php endforeach; ?>
 				</table>
 			</div>
-		</div>
-		<div class="col-lg-3">
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-			<img class="img-rounded" width="166px" height="132px" src="<?= base_url() ?>images/leafy.jpg" alt="Gutter full of Leaves" >
-		</div>
+		</div>		
 	</div>
 </div>
 

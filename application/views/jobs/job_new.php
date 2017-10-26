@@ -19,7 +19,7 @@
                 <hr/>
 
 				<?php
-				echo "<p>Job Record Editor</p>";
+				echo "<p>Add New Job</p>";
 				?>
 
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
@@ -39,7 +39,11 @@
 
 					echo "<label>Bagging:</label><input type='text' name='bagging' placeholder='20'  class='form-control' ><br/>";
 
+                    echo "<label>Sweeping:</label><input type='text' name='sweeping' placeholder='15'  class='form-control' ><br/>";
+
 					echo "<label>Status:</label><select name='status'  class='form-control' title='Job Status'><option selected>todo</option><option>done-paid</option><option>done-owes</option></select><br/>";
+
+                    echo "<label>Note:</label><textarea name='notes'  class='form-control'></textarea><br/>";
 
     				?>
                     <span class='ftext'>Note: The Date Completed field is updated when the status is changed from 'todo' to 'done-owes' or 'done-paid'</span>

@@ -115,6 +115,43 @@ class Custies_model extends CI_model {
         return $query->row_array();
     }
 
+    public function set_job($job_id = FALSE)
+    {
+        $today = new Datetime();
+
+
+         $data = array(
+            'job_id' => $job_id,
+            'cust_id' => $this->input->post('cust_id'),            
+            'date_req' => $this->input->post('date_req'),
+            'date_sched' => $this->input->post('date_sched'),
+            'price' => $this->input->post('price'),
+            'bagging' => $this->input->post('bagging'),
+            'sweeping' => $this->input->post('sweeping'),
+            'status' => $this->input->post('status'),
+            'notes' => $this->input->post('notes')
+            );
+
+         if (strpos($data['status'],'done') != FALSE) 
+         {
+            $data['date_comp'] = $today->format('Y-m-d');
+
+         } else {
+            $data['date_comp'] = NULL;
+
+         }
+
+        $query_result = $this->db->replace('jobs', $data);
+
+          if(!$query_result) {
+             $this->error = $this->db->_error_message();
+             $this->errorno = $this->db->_error_number();
+             return false;
+          }
+
+        return $query_result;
+    }
+
     public function new_job($cust_id)
     {
         $data = array(
@@ -123,7 +160,9 @@ class Custies_model extends CI_model {
            'date_sched' => $this->input->post('date_sched'),
            'price' => $this->input->post('price'),
            'bagging' => $this->input->post('bagging'),
-           'status' => $this->input->post('status')
+           'sweeping' => $this->input->post('sweeping'),
+           'status' => $this->input->post('status'),
+           'notes' => $this->input->post('notes')
            );
 
         $this->db->insert('jobs', $data);

@@ -5,6 +5,7 @@
             		<P STYLE="margin-bottom: 0in">Gutter cleaning is a nasty job, albeit
             		a necessary one. When gutters aren't working they can create havoc on
             		your house in the following ways:</P>
+                    <h3>Call Today to schedule your cleaning <a href="tel:518-584-6421">518-584-6421</a> or <a href="mailto:general@guttercleanouts.com">E-mail</a></h3>
             		<UL>
             			<li>Allow groundwater to sit around the
             	foundation causing leaks, cracks or flooding basements</li>
@@ -15,7 +16,7 @@
             			<li>Creating ice dams on the roof that
             	force water inside your house</li>
             		</UL>
-            		<img class="img-rounded" width="166px" height="132px" src="./images/leafy.jpg" alt="Gutter full of Leaves" >
+            		<img class="img-rounded" width="166px" height="132px" src="<?php echo base_url('./images/leafy.jpg'); ?>" alt="Gutter full of Leaves" >
             		<P STYLE="margin-bottom: 0in">The frequency with which you choose to
             		clean your gutters is likely to be based on the amount of trees in
             		your yard. Obviously older tall trees close to the house will cause

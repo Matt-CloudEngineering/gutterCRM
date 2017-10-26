@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'technol3_read2',
-	'password' => 'pa33word',
+	'hostname' => 'daryl.asoshared.com',
+	'username' => 'technol3_main',
+	'password' => 'Pa33word',
 	'database' => 'technol3_gutters',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
